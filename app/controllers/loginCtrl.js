@@ -1,9 +1,32 @@
-app.controller("loginCtrl", ["$scope", "$firebaseObject",function($scope, $firebaseObject) {
-  var ref = new Firebase("https://perishibles.firebaseio.com/");
-  // download the data into a local object
-  var syncObject = $firebaseObject(ref);
-  // synchronize the object with a three-way data binding
-  // click on `index.html` above to see it used in the DOM!
+app.controller("loginCtrl", ["$scope", "Auth",function($scope, Auth) {
 
-  // syncObject.$bindTo($scope, "data");
+    $scope.login = function() {
+        $scope.message = null;
+        $scope.error = null;
+
+        Auth.$authWithPassword({
+            email: $scope.email,
+            password: $scope.password
+        }).then(function(authData) {
+            $scope.message = "Logged in as:" + authData.uid;
+            console.log("Logged in as:", authData.uid);
+        }).catch(function() {
+            $scope.error = "There was an error registering your user.";
+        });
+    };
+
+    $scope.createUser = function() {
+        $scope.message = null;
+        $scope.error = null;
+
+        Auth.$createUser({
+            email: $scope.email,
+            password: $scope.password
+        }).then(function(userData) {
+            $scope.message = "User created with uid: " + userData.uid;
+        }).catch(function() {
+            $scope.error = "There was an error registering your user.";
+        });
+    };
+
 }]);

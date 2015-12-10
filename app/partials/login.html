@@ -6,16 +6,20 @@
         <div class="box-header">
             <h2>Log In</h2>
         </div>
-        <label for="username">Username</label>
-        <br/>
-        <input type="text" id="username">
-        <br/>
-        <label for="password">Password</label>
-        <br/>
-        <input type="password" id="password">
-        <br/>
-        <button type="submit">Sign In</button>
-        <br/>
+        <div class="row">
+            <label for="email">Email</label>
+            <input id="username" ng-model="email">
+        </div>
+        <div class="row">
+            <label for="password">Password</label>
+            <input id="password" ng-model="password">
+        </div>
+        <div class="row">
+            <button type="submit" ng-click="login()">Sign In</button>
+            <button type="submit" ng-click="createUser()">Register</button>
+        </div>
+        <p ng-if="message">{{message}}</p>
+        <p ng-if="error">Error:{{ error }}</p>
         <a href="#"><p class="small">Forgot your password?</p></a>
     </div>
 </div>
