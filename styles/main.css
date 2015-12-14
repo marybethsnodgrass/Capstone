@@ -1,5 +1,5 @@
 body {
-  background: url("https://vegannewbies.files.wordpress.com/2010/04/produce.jpg") no-repeat center center fixed;
+  background: url("images/veggiesBackground.jpg") no-repeat center center fixed;
   background-size: cover;
   font-size: 16px;
   font-family: 'Lato', sans-serif;
@@ -133,6 +133,23 @@ p.small {
   -webkit-animation-duration: 1s;
   -webkit-animation-delay: 1s; }
 
+body {
+  padding-top: 70px;
+  /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */ }
+
+.navbar-fixed-top .nav {
+  padding: 15px 0; }
+
+.navbar-fixed-top .navbar-brand {
+  padding: 0 15px; }
+
+@media (min-width: 768px) {
+  body {
+    padding-top: 100px;
+    /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */ }
+
+  .navbar-fixed-top .navbar-brand {
+    padding: 15px 0; } }
 html {
   box-sizing: border-box; }
 
