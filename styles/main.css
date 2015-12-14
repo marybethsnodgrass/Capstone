@@ -138,10 +138,17 @@ body {
   /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */ }
 
 .navbar-fixed-top .nav {
-  padding: 15px 0; }
+  padding: 15px; }
 
-.navbar-fixed-top .navbar-brand {
+.navSpan {
+  display: inline-block;
   padding: 0 15px; }
+
+.navSpan a {
+  color: #AAAAAA; }
+
+.navSpan a:hover {
+  color: #8A8A8A; }
 
 @media (min-width: 768px) {
   body {
