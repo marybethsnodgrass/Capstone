@@ -10,7 +10,7 @@ app.controller("loginCtrl", ["$scope", "Auth", "$location" ,function($scope, Aut
         }).then(function(authData) {
             $scope.message = "Logged in as:" + authData.uid;
             console.log("Logged in as:", authData.uid);
-            $location.path("/home");
+            $location.path("/inventory");
         }).catch(function() {
             $scope.error = "There was an error registering your user.";
         });
@@ -26,7 +26,7 @@ app.controller("loginCtrl", ["$scope", "Auth", "$location" ,function($scope, Aut
             password: $scope.password
         }).then(function(userData) {
             $scope.message = "User created with uid: " + userData.uid;
-            $location.path("/home");
+            $location.path("/inventory");
         }).catch(function() {
             $scope.error = "There was an error registering your user.";
         });
