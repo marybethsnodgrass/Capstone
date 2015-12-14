@@ -1,4 +1,6 @@
-<div class="container" ng-controller="inventoryCtrl">
+<div class="container" ng-app ng-controller="inventoryCtrl">
     <navbar-directive></navbar-directive> 
-    <div><h1> inventory</h1></div>
+    <div class="dateDiv">
+        <span> Today is <text class="bold">{{date | date:'EEEE MMMM d, yyyy'}}</text></span>
+    </div>
 </div>
