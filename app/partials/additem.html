@@ -1,11 +1,23 @@
 <div class="container" ng-controller="additemCtrl">
     <navbar-directive></navbar-directive> 
-    <div class="dateDiv">
-        <span> Today is <text class="bold">{{date | date:'EEEE MMMM d, yyyy'}}</text></span>
+    <h2>Search for food</h2>
+    <h1>{{title}}</h1>
+    <div class="input-group">
+        <span class="input-group-addon" ng-click="">
+            <span class="glyphicon glyphicon-search"></span>
+        </span>
+        <input type="text" class="form-control" ng-model="searchInput">
     </div>
+        <h3>Results</h3>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="data in data | filter:searchInput">{{data.food}} 
+                    <span class="badge">{{data.state}}</span>
+                </li>
+            </ul>
     <form>
         <label for="dateInput">Purchase Date</label>
         <input type="date" id="dateInput" name="input" ng-model="purchaseDate.value"
        placeholder="yyyy-MM-dd" required />
+        <input type="submit" value="Add Item">
     </form>
 </div>
