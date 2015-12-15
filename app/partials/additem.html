@@ -3,15 +3,20 @@
     <h2>Search for food</h2>
     <h1>{{title}}</h1>
     <div class="input-group">
+        <input type="text" class="form-control" ng-model="searchInput">
         <span class="input-group-addon" ng-click="">
             <span class="glyphicon glyphicon-search"></span>
         </span>
-        <input type="text" class="form-control" ng-model="searchInput">
     </div>
         <h3>Results</h3>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="data in data | filter:searchInput">{{data.food}} 
+                <li class="list-group-item" ng-repeat="data in data | filter:searchInput">
+                    <a ng-click="isCollapsed = !isCollapsed">{{data.food}}</a>
                     <span class="badge">{{data.state}}</span>
+                    <div uib-collapse="!isCollapsed"> 
+                        <span>Refridgirator Life: {{data.fridgemin}} - {{data.fridgemax}} days</span>
+                        <span>Freezer Life: {{data.freezemin}} - {{data.freezemax}} days</span>
+                    </div>
                 </li>
             </ul>
     <form>

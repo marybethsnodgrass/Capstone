@@ -4,34 +4,34 @@
             "id": 1,
             "food": "poultry",
             "state": "raw",
-            "refridgerator-max": "2",
-            "refridgerator-min": "1",
-            "freezer-max": "unknown",
-            "freezer-min": "unknown",
-            "shelf-max": "not advised",
-            "shelf-min":"not advised"
+            "fridgemax": "2",
+            "fridgemin": "1",
+            "freezemax": "unknown",
+            "freezemin": "unknown",
+            "shelfmax": "not advised",
+            "shelfmin":"not advised"
         },
         "beef": {
             "id": 2,
             "food": "beef",
             "state": "raw",
-            "refridgerator-max": "5",
-            "refridgerator-min": "3",
-            "freezer-max": "unknown",
-            "freezer-min": "unknown",
-            "shelf-max": "not advised",
-            "shelf-min":"not advised"
+            "fridgemax": "5",
+            "fridgemin": "3",
+            "freezemax": "unknown",
+            "freezemin": "unknown",
+            "shelfmax": "not advised",
+            "shelfmin":"not advised"
         },
         "veal":{
             "id": 3,
             "food": "veal",
             "state": "raw",
-            "refridgerator-max": "5",
-            "refridgerator-min": "3",
-            "freezer-max": "unknown",
-            "freezer-min": "unknown",
-            "shelf-max": "not advised",
-            "shelf-min":"not advised"
+            "fridgemax": "5",
+            "fridgemin": "3",
+            "freezemax": "unknown",
+            "freezemin": "unknown",
+            "shelfmax": "not advised",
+            "shelfmin":"not advised"
          }
     }
 }
