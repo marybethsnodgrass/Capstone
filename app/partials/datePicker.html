@@ -1,0 +1,16 @@
+<div>
+    <div>
+        <button ng-click="setFoodDate(dt)">Set That Date!</button>
+        <div id="datePickDiv">
+                <div id="datePick">
+                    <p class="input-group">
+                      <input type="text" class="form-control" uib-datepicker-popup="MM-dd-yyyy" ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" on-open-focus/>
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                    </p>
+                </div>
+            
+        </div>
+    </div>
+</div>

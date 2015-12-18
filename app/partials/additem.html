@@ -11,18 +11,22 @@
         <h3>Results</h3>
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="data in data | filter:searchInput">
-                    <a ng-click="isCollapsed = !isCollapsed">{{data.food}}</a>
+                    
+                    <a ng-click="expanded = !expanded">{{data.food}}<span class="glyphicon glyphicon-triangle-bottom"></span></a>
                     <span class="badge">{{data.state}}</span>
-                    <div uib-collapse="!isCollapsed"> 
-                        <span>Refridgirator Life: {{data.fridgemin}} - {{data.fridgemax}} days</span>
-                        <span>Freezer Life: {{data.freezemin}} - {{data.freezemax}} days</span>
+                    <div uib-collapse="!expanded"> 
+                        <form>
+                            <span>Refridgerator Life: {{data.fridgemin}} - {{data.fridgemax}} days</span>
+                            <input type="checkbox" ng-model="fridgeCheck" ng-click"fridgeMaxDate()">
+                            <span>Freezer Life: {{data.freezemin}} - {{data.freezemax}} days</span>
+                            <input type="checkbox" ng-model="freezeCheck">
+                            <label for="dateInput">Purchase Date</label>
+                            <datepicker-directive id="dt"></datepicker-directive>
+                            <h1 style="color: saddlebrown">{{dt}}</h1>
+                            <input type="submit" ng-click="addItem()">
+                        </form>
                     </div>
                 </li>
             </ul>
-    <form>
-        <label for="dateInput">Purchase Date</label>
-        <input type="date" id="dateInput" name="input" ng-model="purchaseDate.value"
-       placeholder="yyyy-MM-dd" required />
-        <input type="submit" value="Add Item">
-    </form>
+    
 </div>

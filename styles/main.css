@@ -157,6 +157,13 @@ body {
 
   .navbar-fixed-top .navbar-brand {
     padding: 15px 0; } }
+#datePick {
+  width: 20%; }
+
+#datePickDiv {
+  display: inline-block;
+  min-height: 290px; }
+
 html {
   box-sizing: border-box; }
 

@@ -1,4 +1,4 @@
-var app = angular.module("capstoneApp", ["ngRoute", "firebase", "ui.bootstrap"]);
+var app = angular.module("capstoneApp", ["ngRoute", "firebase", "ui.bootstrap", "ui.calendar", "angularMoment"]);
 app.config(['$routeProvider',function($routeProvider) {
     $routeProvider.
         when('/', {
