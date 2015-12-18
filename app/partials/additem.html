@@ -17,13 +17,13 @@
                     <div uib-collapse="!expanded"> 
                         <form>
                             <span>Refridgerator Life: {{data.fridgemin}} - {{data.fridgemax}} days</span>
-                            <input type="checkbox" ng-model="fridgeCheck" ng-click"fridgeMaxDate()">
+                            <input type="checkbox" ng-model="data.fridge">
                             <span>Freezer Life: {{data.freezemin}} - {{data.freezemax}} days</span>
-                            <input type="checkbox" ng-model="freezeCheck">
+                            <input type="checkbox" ng-model="data.freezer">
                             <label for="dateInput">Purchase Date</label>
                             <datepicker-directive id="dt"></datepicker-directive>
                             <h1 style="color: saddlebrown">{{dt}}</h1>
-                            <input type="submit" ng-click="addItem()">
+                            <input type="submit" ng-click="addItem(data)">
                         </form>
                     </div>
                 </li>

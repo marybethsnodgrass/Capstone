@@ -10,7 +10,7 @@ app.directive("datepickerDirective", function() {
     link: function ($scope, element, attrs) {
       // DOM manipulation/events here!
         $scope.setFoodDate = function(dt) {
-            scope.$emit('date', dt);
+            $scope.$emit('date', dt);
         };
 
         $scope.open = function($event) {
