@@ -1,9 +1,7 @@
-app.controller("additemCtrl", ["$scope", "Auth", "$firebaseArray", "convertDDay", "moment" ,function($scope, Auth, $firebaseArray, convertDDay, moment) {
+app.controller("additemCtrl", ["$scope", "fbRefFactory", "$firebaseArray", "convertDDay", "moment" ,function($scope, fbRefFactory, $firebaseArray, convertDDay, moment) {
     $scope.eventSources = [];
 
     $scope.searchInput = '';
-
-    var ref = new Firebase("https://perishibles.firebaseio.com/foods/");
 
     $scope.$on('date', function(event, dt) {
         console.log(dt);
@@ -14,6 +12,14 @@ app.controller("additemCtrl", ["$scope", "Auth", "$firebaseArray", "convertDDay"
         var fridgeDateMin = convertDDay.findDateMin(dt, data.fridgemin);
         console.log("fridgedatemin", fridgeDateMin);
         return fridgeDateMin;
+    };
+
+    var postFridgeMin = function (data) {
+        var arrayToAddRef = fbRefFactory.usersRefGet(data.foods);
+        console.log("arrayToAddRef: ", arrayToAddRef);
+        var arrayToAdd = $firebaseArray(arrayToAddRef);
+        console.log("arrayToAdd", arrayToAdd);
+        arrayToAdd.$add({fridgemin: findFridgeMin()});
     };
 
     var findFridgeMax = function (data) {
@@ -34,22 +40,21 @@ app.controller("additemCtrl", ["$scope", "Auth", "$firebaseArray", "convertDDay"
         return freezeDateMax;
     };
 
-    $scope.data = $firebaseArray(ref);
+    $scope.data = $firebaseArray(fbRefFactory.foodsRefGet());
 
     $scope.addItem = function (data) {
         if (data.fridge === true) {
             findFridgeMin(data);
             findFridgeMax(data);
+            postFridgeMin(data);
         } else {
             console.log("nope, fridge not true");
         }
         if (data.freezer === true) {
             findFreezeMin(data);
             findFreezeMax(data);
-            console.log("freezedatemin", freezeDateMin);
         } else {
             console.log("nope, freeze not true");
         }
     };
-
 }]);
