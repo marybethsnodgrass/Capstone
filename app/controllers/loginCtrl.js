@@ -28,7 +28,7 @@ app.controller("loginCtrl", ["$scope", "fbRefFactory", "uidFactory", "$location"
             fbRefFactory.userRefCreate(userData);
             $location.path("/inventory");
         }).catch(function() {
-            $scope.error = "There was an error registering your user.";
+            $scope.error = "There was an error logging in.";
         });
     };
 

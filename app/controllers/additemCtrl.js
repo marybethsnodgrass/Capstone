@@ -1,4 +1,4 @@
-app.controller("additemCtrl", ["$scope", "fbRefFactory", "$firebaseArray", "convertDDay", "moment" ,function($scope, fbRefFactory, $firebaseArray, convertDDay, moment) {
+app.controller("additemCtrl", ["$scope", "fbRefFactory", "$firebaseArray", "uidFactory", "convertDDay", "moment" ,function($scope, fbRefFactory, $firebaseArray, uidFactory, convertDDay, moment) {
     $scope.eventSources = [];
 
     $scope.searchInput = '';
@@ -15,11 +15,19 @@ app.controller("additemCtrl", ["$scope", "fbRefFactory", "$firebaseArray", "conv
     };
 
     var postFridgeMin = function (data) {
-        var arrayToAddRef = fbRefFactory.usersRefGet(data.foods);
-        console.log("arrayToAddRef: ", arrayToAddRef);
-        var arrayToAdd = $firebaseArray(arrayToAddRef);
-        console.log("arrayToAdd", arrayToAdd);
-        arrayToAdd.$add({fridgemin: findFridgeMin()});
+        var uid = uidFactory.getUID();
+        console.log("uid: ", uid);
+        var userRef = new Firebase(fbRefFactory.usersRef() + "/" + uid);
+        console.log("userRef: ", userRef);
+        var userArray = $firebaseArray(userRef);
+        console.log("userArray: ", userArray);
+        var food = data.food;
+        console.log("food: ", food);
+        var foodRef = new Firebase(fbRefFactory.foodsRefGet() + "/" + food);
+        console.log("foodRef: ", foodRef);
+        var foodArray = $firebaseArray(foodRef);
+        console.log("foodArray: ", foodArray);
+        userArray.$add(foodArray);
     };
 
     var findFridgeMax = function (data) {
