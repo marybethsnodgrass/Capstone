@@ -10,19 +10,25 @@ app.factory("fbRefFactory", ["$firebaseAuth", "$firebaseArray", "$firebaseObject
             return usersRef;
         },
 
-        foodsRefGet: function () {
-            var foodsRef = new Firebase("https://perishibles.firebaseio.com/foods/");
-            console.log("foodsRef: ", foodsRef);
-            return foodsRef;
+
+        userRef: function () {
+            var userRef = new Firebase("https://perishibles.firebaseio.com/users/" + uidFactory.getUID());
+            console.log("userRef", userRef);
+            return userRef;
         },
 
-        // foodRef: function (food) {
-        //     var foodRef = new Firebase("https://perishibles.firebaseio.com/foods" + food);
-        //     console.log("foodRef: ", foodRef);
-        //     console.log("food: ", food);
-        //     console.log("$firebaseArray(foodRef): ", $firebaseArray(foodRef));
-        //     return foodRef;
-        // },
+        foodsRef: function () {
+            var foodsRefVar = new Firebase("https://perishibles.firebaseio.com/foods/");
+            console.log("foodsRef: ", foodsRefVar);
+            return foodsRefVar;
+        },
+
+        foodRef: function (food) {
+            var foodRefVar = new Firebase("https://perishibles.firebaseio.com/foods/" + food);
+            console.log("foodRefVar: ", foodRefVar);
+            console.log("food: ", food);
+            return foodRefVar;
+        },
 
         authRefGet: function () {
             var authRef = new Firebase("https://perishibles.firebaseio.com/");
