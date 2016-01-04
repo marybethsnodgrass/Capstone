@@ -1,4 +1,4 @@
-app.factory("customDataFactory", ["$firebaseObject", "uidFactory", "$q", "convertDDay", "fbObjFactory", "addCtrlFactory", "fridgeMinFactory", function($firebaseObject, uidFactory, $q, convertDDay, fbObjFactory, addCtrlFactory, fridgeMinFactory) {
+app.factory("customDataFactory", ["$firebaseObject", "uidFactory", "$q", "convertDDay", "fbObjFactory", "fridgeMinFactory", "fridgeMaxFactory", function($firebaseObject, uidFactory, $q, convertDDay, fbObjFactory, fridgeMinFactory, fridgeMaxFactory) {
 
     return {
         createCustomFridgeMin: function (data) {
@@ -6,29 +6,24 @@ app.factory("customDataFactory", ["$firebaseObject", "uidFactory", "$q", "conver
             customFridgeMin.date = fridgeMinFactory.fridgeMinDate(data);
             customFridgeMin.month = fridgeMinFactory.fridgeMinMonth(data);
             customFridgeMin.year = fridgeMinFactory.fridgeMinYear(data);
-            customFridgeMin.day = fridgeMinFactory.fridgeMinDay(data);
             customFridgeMin.$save();
-            console.log("customFridgeMin: ", customFridgeMin);
             return customFridgeMin;
-
         },
 
-        createCustomFreezeData: function (data) {
-            var customDataObj = fbObjFactory.foodObj(data.food);
-            customDataObj.working = "working";
-            customDataObj.state = data.state;
-            customDataObj.freezeMinDate = findFreezeMin(data);
-            customDataObj.freezeMaxMoment = findFreezeMin(data);
-            customDataObj.$save();
-            console.log("customDataObj: ", customDataObj);
-            return customDataObj;
+        createCustomFridgeMax: function (data) {
+            var customFridgeMax = fbObjFactory.fridgeMaxObj(data.food);
+            customFridgeMax.date = fridgeMaxFactory.fridgeMaxDate(data);
+            customFridgeMax.month = fridgeMaxFactory.fridgeMaxMonth(data);
+            customFridgeMax.year = fridgeMaxFactory.fridgeMaxYear(data);
+            customFridgeMax.$save();
+            return customFridgeMax;
+        },
+
+        createCustomFoodData: function (data) {
+            var customFoodObj = fbObjFactory.foodObj(data.food);
+            customFoodObj.state = data.state;
+            customFoodObj.$save();
+            return customFoodObj;
         }
     };
 }]);
-            // var customDataObj = fbObjFactory.foodObj(data.food);
-            // customDataObj.working = "working";
-            // customDataObj.state = data.state;
-            // customDataObj.fridgeMaxMoment = addCtrlFactory.findFridgeMax(data);
-            // customDataObj.$save();
-            // console.log("customDataObj: ", customDataObj);
-            // return customDataObj;

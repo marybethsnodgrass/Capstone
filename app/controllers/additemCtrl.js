@@ -1,4 +1,4 @@
-app.controller("additemCtrl", ["$scope", "fbRefFactory", "$firebaseArray", "customDataFactory", "fbObjFactory", "addCtrlFactory", "fridgeMinFactory" ,function($scope, fbRefFactory, $firebaseArray, customDataFactory, fbObjFactory, addCtrlFactory, fridgeMinFactory) {
+app.controller("additemCtrl", ["$scope", "fbRefFactory", "$firebaseArray", "customDataFactory", "fbObjFactory", "fridgeMinFactory" ,function($scope, fbRefFactory, $firebaseArray, customDataFactory, fbObjFactory, fridgeMinFactory) {
     $scope.eventSources = [];
 
     $scope.searchInput = '';
@@ -13,6 +13,8 @@ app.controller("additemCtrl", ["$scope", "fbRefFactory", "$firebaseArray", "cust
     $scope.addItem = function (data) {
         if (data.fridge === true) {
             customDataFactory.createCustomFridgeMin(data);
+            customDataFactory.createCustomFridgeMax(data);
+            customDataFactory.createCustomFoodData(data);
         } else {
             console.log("nope, fridge not true");
         }

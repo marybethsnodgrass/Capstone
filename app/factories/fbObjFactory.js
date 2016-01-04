@@ -20,6 +20,12 @@ app.factory("fbObjFactory", ["$firebaseObject", "fbRefFactory", function($fireba
             return fridgeMinObjVar;
         },
 
+        fridgeMaxObj: function (food) {
+            var fridgeMaxObjVar = $firebaseObject(fbRefFactory.fridgeMaxRef(fbRefFactory.userRef(),food));
+            console.log("fridgeMinObjVar: ", fridgeMaxObjVar);
+            return fridgeMaxObjVar;
+        },
+
    
 
     };

@@ -23,16 +23,27 @@ app.factory("fbRefFactory", ["$firebaseAuth", "uidFactory", function($firebaseAu
 
         foodRef: function (userRef, food) {
             var foodRefVar = new Firebase(userRef + '/' + food);
-            console.log("foodRefVar: ", foodRefVar);
-            console.log("food: ", food);
             return foodRefVar;
         },
 
         fridgeMinRef: function (userRef, food) {
             var fridgeMinRefVar = new Firebase(userRef + '/' + food + "/fridgeMinMoment");
-            console.log("foodRefVar: ", fridgeMinRefVar);
-            console.log("food: ", food);
             return fridgeMinRefVar;
+        },
+
+        fridgeMaxRef: function (userRef, food) {
+            var fridgeMaxRefVar = new Firebase(userRef + '/' + food + "/fridgeMaxMoment");
+            return fridgeMaxRefVar;
+        },
+
+        freezeMinRef: function (userRef, food) {
+            var freezeMinRefVar = new Firebase(userRef + '/' + food + "/freezeMinMoment");
+            return freezeMinRefVar;
+        },
+
+        freezeMaxRef: function (userRef, food) {
+            var freezeMaxRefVar = new Firebase(userRef + '/' + food + "/freezeMaxMoment");
+            return freezeMaxRefVar;
         },
 
         authRefGet: function () {
