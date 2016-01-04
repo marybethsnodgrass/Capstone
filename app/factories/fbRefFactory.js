@@ -1,6 +1,4 @@
-app.factory("fbRefFactory", ["$firebaseAuth", "$firebaseArray", "$firebaseObject", "uidFactory", function($firebaseAuth, $firebaseArray, $firebaseObject, uidFactory) {
-    var uid = null;
-    var uKey = null;
+app.factory("fbRefFactory", ["$firebaseAuth", "uidFactory", function($firebaseAuth, uidFactory) {
 
     return {
 
@@ -28,6 +26,13 @@ app.factory("fbRefFactory", ["$firebaseAuth", "$firebaseArray", "$firebaseObject
             console.log("foodRefVar: ", foodRefVar);
             console.log("food: ", food);
             return foodRefVar;
+        },
+
+        fridgeMinRef: function (userRef, food) {
+            var fridgeMinRefVar = new Firebase(userRef + '/' + food + "/fridgeMinMoment");
+            console.log("foodRefVar: ", fridgeMinRefVar);
+            console.log("food: ", food);
+            return fridgeMinRefVar;
         },
 
         authRefGet: function () {

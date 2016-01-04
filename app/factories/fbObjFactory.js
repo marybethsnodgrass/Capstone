@@ -1,6 +1,4 @@
-app.factory("fbObjFactory", ["$firebaseAuth", "$firebaseArray", "$firebaseObject", "fbRefFactory", "uidFactory", function($firebaseAuth, $firebaseArray, $firebaseObject, fbRefFactory, uidFactory) {
-    var uid = null;
-    var uKey = null;
+app.factory("fbObjFactory", ["$firebaseObject", "fbRefFactory", function($firebaseObject, fbRefFactory) {
 
     return {
 
@@ -16,11 +14,13 @@ app.factory("fbObjFactory", ["$firebaseAuth", "$firebaseArray", "$firebaseObject
             return foodObjVar;
         },
 
-    //     fridgeMaxMoment = function (data) {
-    //     var fridgeMaxMomentVar = convertDDay.findDateMax(dt, data.fridgemax);
-    //     console.log("fridgedatemax", fridgeDateMax);
-    //     return fridgeDateMax;
-    // };
+        fridgeMinObj: function (food) {
+            var fridgeMinObjVar = $firebaseObject(fbRefFactory.fridgeMinRef(fbRefFactory.userRef(),food));
+            console.log("fridgeMinObjVar: ", fridgeMinObjVar);
+            return fridgeMinObjVar;
+        },
+
+   
 
     };
 }]);
