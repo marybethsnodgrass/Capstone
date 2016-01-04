@@ -23,8 +23,8 @@ app.factory("fbRefFactory", ["$firebaseAuth", "$firebaseArray", "$firebaseObject
             return foodsRefVar;
         },
 
-        foodRef: function (food) {
-            var foodRefVar = new Firebase("https://perishibles.firebaseio.com/foods/" + food);
+        foodRef: function (userRef, food) {
+            var foodRefVar = new Firebase(userRef + '/' + food);
             console.log("foodRefVar: ", foodRefVar);
             console.log("food: ", food);
             return foodRefVar;

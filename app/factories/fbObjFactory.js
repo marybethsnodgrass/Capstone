@@ -11,20 +11,16 @@ app.factory("fbObjFactory", ["$firebaseAuth", "$firebaseArray", "$firebaseObject
         },
 
         foodObj: function (food) {
-            var foodObjVar = $firebaseObject(fbRefFactory.foodRef(food));
-            console.log("$firebaseObject(fbRefFactory.foodRef(): ", $firebaseObject(fbRefFactory.foodRef(food)));
+            var foodObjVar = $firebaseObject(fbRefFactory.foodRef(fbRefFactory.userRef(),food));
+            console.log("foodObjVar: ", foodObjVar);
             return foodObjVar;
         },
 
-        // authRefGet: function () {
-        //     var authRef = new Firebase("https://perishibles.firebaseio.com/");
-        //     return $firebaseAuth(authRef);
-        // },
+    //     fridgeMaxMoment = function (data) {
+    //     var fridgeMaxMomentVar = convertDDay.findDateMax(dt, data.fridgemax);
+    //     console.log("fridgedatemax", fridgeDateMax);
+    //     return fridgeDateMax;
+    // };
 
-        // userRefCreate: function (userData) {
-        //     var uidVar = uidFactory.setUID(userData);
-        //     var ref = new Firebase("https://perishibles.firebaseio.com/");
-        //     ref.child("users").child(uidVar).set({active: true});
-        // }
     };
 }]);
