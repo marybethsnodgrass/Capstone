@@ -1,4 +1,4 @@
-app.controller("loginCtrl", ["$scope", "fbRefFactory", "uidFactory", "$location" ,function($scope, fbRefFactory, uidFactory, $location) {
+app.controller("loginCtrl", ["$scope", "fbRefFactory", "uidFactory", "$location", "fbObjFactory", "customDataFactory", function($scope, fbRefFactory, uidFactory, $location, fbObjFactory, customDataFactory) {
 
     $scope.login = function() {
         $scope.message = null;
@@ -25,7 +25,7 @@ app.controller("loginCtrl", ["$scope", "fbRefFactory", "uidFactory", "$location"
             email: $scope.email,
             password: $scope.password
         }).then(function(userData) {
-            fbRefFactory.userRefCreate(userData);
+            customDataFactory.createCustomUser(userData);
             $location.path("/inventory");
         }).catch(function() {
             $scope.error = "There was an error logging in.";

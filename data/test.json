@@ -33,12 +33,5 @@
             "shelfmax": "not advised",
             "shelfmin":"not advised"
          }
-    },
-    "users": {
-        "19ce8e6f-8420-41da-a70a-7b0097466488": {
-            "tomato": {
-                "bought" : "yes"
-            }
-        }
     }
 }

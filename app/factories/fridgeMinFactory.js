@@ -5,6 +5,7 @@ app.factory("fridgeMinFactory", ["$firebaseObject", "uidFactory", "$q", "convert
         fridgeMinDate: function (data) {
             var fridgeDateMin = convertDDay.findDateMin(dt, data.fridgemin);
             var fridgeMinDateVar = moment(fridgeDateMin).date();
+            console.log("fridgeMinDateVar: ", fridgeMinDateVar);
             return fridgeMinDateVar;
         },
 

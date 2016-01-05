@@ -14,6 +14,7 @@ app.controller("additemCtrl", ["$scope", "fbRefFactory", "$firebaseArray", "cust
         if (data.fridge === true) {
             customDataFactory.createCustomFridgeMin(data);
             customDataFactory.createCustomFridgeMax(data);
+            console.log("customDataFactory.createCustomFridgeMax(data): ", customDataFactory.createCustomFridgeMax(data));
             customDataFactory.createCustomFoodData(data);
         } else {
             console.log("nope, fridge not true");

@@ -8,6 +8,12 @@ app.factory("fbObjFactory", ["$firebaseObject", "fbRefFactory", function($fireba
             return userObjVar;
         },
 
+        userObjCreate: function (userData) {
+            var userObjCreateVar = $firebaseObject(fbRefFactory.userRefCreate(userData));
+            console.log("userObjVar: ", userObjCreateVar);
+            return userObjCreateVar;
+        },
+
         foodObj: function (food) {
             var foodObjVar = $firebaseObject(fbRefFactory.foodRef(fbRefFactory.userRef(),food));
             console.log("foodObjVar: ", foodObjVar);
@@ -24,9 +30,6 @@ app.factory("fbObjFactory", ["$firebaseObject", "fbRefFactory", function($fireba
             var fridgeMaxObjVar = $firebaseObject(fbRefFactory.fridgeMaxRef(fbRefFactory.userRef(),food));
             console.log("fridgeMinObjVar: ", fridgeMaxObjVar);
             return fridgeMaxObjVar;
-        },
-
-   
-
+        }
     };
 }]);
