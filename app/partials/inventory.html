@@ -1,13 +1,23 @@
 <div class="container" ng-app ng-controller="inventoryCtrl">
     <navbar-directive></navbar-directive> 
-    <div class="dateDiv">
+    <div class="dateDiv row">
         <span> Today is <text class="bold">{{date | date:'EEEE MMMM d, yyyy'}}</text></span>
+        <span class="row">Inventory</span>
     </div>
-    <h2>Inventory</h2>
-    <div class="list-group">
-        <div class="col-sm-4" ng-repeat="data in data">
-            <h3>{{data.food}}</h3>
-            <span class="badge">{{data.state}}</span>
+    <div class="contentDiv">
+        <div class="row">
+            <div class="foodTile col-xs-3" ng-repeat="data in data">
+                <div class="row">
+                    <div class="col-xs-5">
+                        <span>{{data.food}}</span>
+                        <span class="badge">{{data.state}}</span>
+                    </div>
+                    <div class="col-xs-7 useByDiv">
+                        <div>Use by {{data.fridgeMax | amDateFormat:'dddd, MMMM Do YYYY'}}</div>
+                        <div>Item has between {{data.fridgeMin | amDifference : null : 'days'}} and {{data.fridgeMax | amDifference : null : 'days' }} days left before expiration</div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    <div>
 </div>
