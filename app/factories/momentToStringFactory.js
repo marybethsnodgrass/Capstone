@@ -14,6 +14,20 @@ app.factory("momentToStringFactory", ["$firebaseObject", "uidFactory", "$q", "co
             var fridgeMinISO = moment(fridgeDateMin).toISOString();
             console.log("fridgeMinISO: ", fridgeMinISO);
             return fridgeMinISO;
+        },
+
+        freezerMaxDate: function (data) {
+            var freezerDateMax = convertDDay.findDateMax(dt, data.freezemax);
+            var freezerMaxISO = moment(freezerDateMax).toISOString();
+            console.log("freezerMaxISO: ", freezerMaxISO);
+            return freezerMaxISO;
+        },
+        
+        freezerMinDate: function (data) {
+            var freezerDateMin = convertDDay.findDateMin(dt, data.freezemin);
+            var freezerMinISO = moment(freezerDateMin).toISOString();
+            console.log("freezerMinISO: ", freezerMinISO);
+            return freezerMinISO;
         }
 
     };

@@ -12,15 +12,12 @@ app.controller("additemCtrl", ["$scope", "fbRefFactory", "$firebaseArray", "cust
 
     $scope.addItem = function (data) {
         if (data.fridge === true) {
-            // customDataFactory.createCustomFridgeMin(data);
-            // customDataFactory.createCustomFridgeMax(data);
-            // console.log("customDataFactory.createCustomFridgeMax(data): ", customDataFactory.createCustomFridgeMax(data));
-            customDataFactory.createCustomFoodData(data);
+            customDataFactory.createFridgeData(data);
         } else {
             console.log("nope, fridge not true");
         }
         if (data.freezer === true) {
-            addCtrlPromisesFactory.freezePromise(data);
+            customDataFactory.createFreezerData(data);
         } else {
             console.log("nope, freeze not true");
         }

@@ -23,7 +23,7 @@
                             <label for="dateInput">Purchase Date</label>
                             <datepicker-directive id="dt"></datepicker-directive>
                             <h1 style="color: saddlebrown">{{dt}}</h1>
-                            <input type="submit" ng-click="addItem(data)">
+                            <input type="submit" ng-click="addItem(data); expanded = !expanded">
                         </form>
                     </div>
                 </li>

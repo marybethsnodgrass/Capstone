@@ -1,26 +1,45 @@
 .foodTile {
     position: relative;
-    display: block;
-    padding: 10px 15px;
-    margin: 0px 10px;
-    margin-bottom: -1px;
+    padding: 10px 10px;
+    margin: 10px 0px;
     background-color: #fff;
     border: 1px solid #ddd;
-}
-
-.foodTile:first-child {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    border-radius: 5px;
 }
 
 .useByDiv {
     margin: auto;
     background-color: #ddd;
+    margin-right: 1em;
     border: 1px solid black;
 }
 
+.useByDiv1 {
+    margin: auto;
+    background-color: #ddd;
+    margin-right: 1em;
+    border: 1px solid black;
+    font-size: .8em;
+}
+
 .contentDiv {
-    padding: 0em, 1em;
-    margin: 0em, 1em;
+    padding: 1em, 1em;
+    margin: 1em, 1em;
     background-color: rgba(0, 0, 0, 0.6);
+    height: 1000px;
+}
+
+.tileRow {
+    padding: 1em, 1em;
+    margin: 1em, 1em;
+}
+
+.top-row {
+    margin-top: 0;
+    border-radius: 5px;
+}
+
+.bottom-row {
+    margin-top: 1em;
+    border-radius: 5px;
 }
