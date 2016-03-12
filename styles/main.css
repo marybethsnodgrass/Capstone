@@ -172,6 +172,12 @@ body {
   border: 1px solid #ddd;
   border-radius: 5px; }
 
+.expired {
+  background-color: red; }
+
+.good {
+  background-color: green; }
+
 .useByDiv {
   margin: auto;
   background-color: #ddd;
@@ -205,6 +211,9 @@ body {
 
 html {
   box-sizing: border-box; }
+
+.atext {
+  color: black; }
 
 .dateDiv {
   color: black;

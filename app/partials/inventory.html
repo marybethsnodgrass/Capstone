@@ -7,15 +7,15 @@
     <div class="contentDiv">
         <div class="tileRow">
             <div class="col-xs-4" ng-repeat="data in data">
-                <div class="foodTile">
+                <div class="foodTile" ng-class="{expired: {{data.dateMin | amDifference : null : 'days'}} < 0, good: {{data.dateMin | amDifference : null : 'days'}} >= 0}">
                     <div class="row top-row">
                         <div class="col-xs-6">
-                            <a ng-click="expanded = !expanded">{{data.food}}
+                            <a class="atext" ng-click="expanded = !expanded">{{data.food}}
                                 <span class="glyphicon glyphicon-triangle-bottom"></span>
                             </a>
-                            <a ng-click=""><span class="glyphicon glyphicon-trash"></span></a>
+                            <a class="atext" ng-click=""><span class="glyphicon glyphicon-trash"></span></a>
                         </div>
-                        <div class="col-xs-5 useByDiv">{{data.dateMin | amDifference : null : 'days'}} - {{data.dateMax | amDifference : null : 'days' }} days
+                        <div class="col-xs-5 useByDiv">{{data.dateMin | amDifference : null : 'days'}} days
                         </div>
                     </div>
                     <div uib-collapse="!expanded"> 
