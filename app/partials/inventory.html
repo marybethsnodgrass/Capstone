@@ -13,7 +13,7 @@
                             <a class="atext" ng-click="expanded = !expanded">{{data.food}}
                                 <span class="glyphicon glyphicon-triangle-bottom"></span>
                             </a>
-                            <a class="atext" ng-click=""><span class="glyphicon glyphicon-trash"></span></a>
+                            <a class="atext" ng-click=""><span class="glyphicon glyphicon-trash" ng-click="deleteFood(data.food)"></span></a>
                         </div>
                         <div class="col-xs-5 useByDiv">{{data.dateMin | amDifference : null : 'days'}} days
                         </div>

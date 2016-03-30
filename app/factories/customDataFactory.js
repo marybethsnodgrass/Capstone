@@ -12,6 +12,10 @@ app.factory("customDataFactory", ["$firebaseObject", "uidFactory", "$q", "conver
             customFoodObj.$save();
             return customFoodObj;
         },
+        deleteFoodObj: function (food) {
+            var customFoodObj = fbObjFactory.foodObj(food);
+            customFoodObj.$remove();
+        },
 
         createFreezerData: function (data) {
             var customFoodObj = fbObjFactory.foodObj(data.food);
