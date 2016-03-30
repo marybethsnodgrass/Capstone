@@ -2,14 +2,14 @@ app.factory("momentToStringFactory", ["$firebaseObject", "uidFactory", "$q", "co
 
     return {
 
-        fridgeMaxDate: function (data) {
+        fridgeMaxDate: function (dt, data) {
             var fridgeDateMax = convertDDay.findDateMax(dt, data.fridgemax);
             var fridgeMaxISO = moment(fridgeDateMax).toISOString();
             console.log("fridgeMaxISO: ", fridgeMaxISO);
             return fridgeMaxISO;
         },
         
-        fridgeMinDate: function (data) {
+        fridgeMinDate: function (dt, data) {
             var fridgeDateMin = convertDDay.findDateMin(dt, data.fridgemin);
             var fridgeMinISO = moment(fridgeDateMin).toISOString();
             console.log("fridgeMinISO: ", fridgeMinISO);

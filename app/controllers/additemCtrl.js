@@ -12,7 +12,7 @@ app.controller("additemCtrl", ["$scope", "fbRefFactory", "$firebaseArray", "cust
 
     $scope.addItem = function (data) {
         if (data.fridge === true) {
-            customDataFactory.createFridgeData(data);
+            customDataFactory.createFridgeData($scope.date, data);
         } else {
             console.log("nope, fridge not true");
         }

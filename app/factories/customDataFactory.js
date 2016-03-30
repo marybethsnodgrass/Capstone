@@ -2,12 +2,12 @@ app.factory("customDataFactory", ["$firebaseObject", "uidFactory", "$q", "conver
 
     return {
 
-        createFridgeData: function (data) {
+        createFridgeData: function (dt, data) {
             var customFoodObj = fbObjFactory.foodObj(data.food);
             customFoodObj.state = data.state;
             customFoodObj.food = data.food;
-            customFoodObj.dateMax = momentToStringFactory.fridgeMaxDate(data);
-            customFoodObj.dateMin = momentToStringFactory.fridgeMinDate(data);
+            customFoodObj.dateMax = momentToStringFactory.fridgeMaxDate(dt, data);
+            customFoodObj.dateMin = momentToStringFactory.fridgeMinDate(dt, data);
             customFoodObj.storage = "fridge";
             customFoodObj.$save();
             return customFoodObj;
