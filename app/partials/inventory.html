@@ -6,7 +6,7 @@
     </div>
     <div class="contentDiv">
         <div class="tileRow">
-            <div class="col-xs-4" ng-repeat="data in data">
+            <div class="col-xs-4" ng-repeat="data in data | orderBy:'dateMin':false">
                 <div class="foodTile" ng-class="{expired: {{data.dateMin | amDifference : null : 'days'}} < 0, good: {{data.dateMin | amDifference : null : 'days'}} >= 0}">
                     <div class="row top-row">
                         <div class="col-xs-6">
