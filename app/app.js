@@ -13,9 +13,5 @@ app.config(['$routeProvider',function($routeProvider) {
             templateUrl: 'app/partials/additem.html',
             controller: 'additemCtrl'
         })
-        .when('/myaccount', {
-            templateUrl: 'app/partials/myaccount.html',
-            controller: 'myaccountCtrl'
-        })
         .otherwise('/');
   }]);

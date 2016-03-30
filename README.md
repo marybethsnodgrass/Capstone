@@ -1,1 +1,1 @@
-add functionality to sort inventory by exp date
+"No Bad Apples" is a web application for keeping track of produce and their expiration dates. This app was built using AngularJS, Moment.js, and Firebase.
