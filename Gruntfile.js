@@ -5,22 +5,22 @@ module.exports = function (grunt) {
             options: {
                 esnext: true
             },
-            files: ['../app/**/*.js']
+            files: ['../public/app/**/*.js']
         },
         sass: {
             dist: {
                 files: {
-                    '../styles/main.css': '../sass/main.scss'
+                    '../public/styles/main.css': '../public/sass/main.scss'
                 }
             }
         },
         watch: {
             javascripts: {
-                files: ['../app/**/*.js'],
+                files: ['../public/app/**/*.js'],
                 tasks: ['jshint']
             },
             sassy: {
-                files: ['../sass/**/*.scss'],
+                files: ['../public/sass/**/*.scss'],
                 tasks: ['sass']
             }
         }

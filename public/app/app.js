@@ -1,7 +1,7 @@
 var app = angular.module("capstoneApp", ["ngRoute", "firebase", "ui.bootstrap", "ui.calendar", "angularMoment"]);
 app.config(['$routeProvider',function($routeProvider) {
-    $routeProvider.
-        when('/', {
+    $routeProvider
+        .when('/', {
             templateUrl: 'app/partials/login.html',
             controller: 'loginCtrl'
         })
@@ -14,4 +14,4 @@ app.config(['$routeProvider',function($routeProvider) {
             controller: 'additemCtrl'
         })
         .otherwise('/');
-  }]);
+}]);
