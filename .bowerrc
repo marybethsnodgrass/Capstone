@@ -1,32 +1,3 @@
 {
-  "name": "lib",
-  "directory" : "public/lib",
-  "description": "",
-  "main": "Gruntfile.js",
-  "authors": [
-    "msnodgrass25 <msnodgrass25@gmail.com>"
-  ],
-  "license": "ISC",
-  "moduleType": [],
-  "homepage": "",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "angular": "~1.4.8",
-    "bootstrap": "~3.3.6",
-    "angular-route": "~1.4.8",
-    "firebase": "~2.3.2",
-    "angularfire": "~1.1.3",
-    "angular-bootstrap": "~0.14.3",
-    "angular-ui-calendar": "latest",
-    "angular-moment": "~0.10.3"
-  },
-  "resolutions": {
-    "angular": "1.4.8"
-  }
+    "directory" : "public/lib"
 }
