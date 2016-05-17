@@ -42,9 +42,9 @@ const port = process.env.PORT || 3000;
 //   next();
 // });
 
-// app.get('/', (req, res) => {
-//   res.send('Server Running');
-// });
+app.get('/', (req, res) => {
+  res.send('Server Running');
+});
 
 //routes
 
