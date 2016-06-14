@@ -17,30 +17,30 @@ const user = require('./routes/user');
 
 const app = express();
 const port = process.env.PORT || 3000;
-// const SESSION_SECRET = process.env.SESSION_SECRET || 'secret';
+const SESSION_SECRET = process.env.SESSION_SECRET || 'secret';
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 
-// app.use(session({
-//   secret: SESSION_SECRET,
-//   store: new RedisStore({
-//     url:REDIS_URL
-//   }),
-//   saveUninitialized: true,
-//   resave: true,
-//   httpOnly: true
-// }));
+app.use(session({
+  secret: SESSION_SECRET,
+  store: new RedisStore({
+    url:REDIS_URL
+  }),
+  saveUninitialized: true,
+  resave: true,
+  httpOnly: true
+}));
 
-// app.use(passport.initialize());
-// app.use(passport.session());
-// require('./config/passport');
+app.use(passport.initialize());
+app.use(passport.session());
+require('./config/passport');
 
-// app.use((req, res, next) => {
-//   res.locals.user = req.user;
-//   next();
-// });
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
 
 app.get('/', (req, res) => {
   res.send('Server Running');
@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
 
 //routes
 
-// app.use(user);
+app.use(user);
 
 db.sequelize.sync().then(() => {
   console.log("seqeulize.sync()");

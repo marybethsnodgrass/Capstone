@@ -1,7 +1,7 @@
 <div class="container" ng-controller="userCtrl">
     <div class="login-box animated fadeInUp">
         <div class="box-header">
-            <h2>Log In</h2>
+            <h2>Register</h2>
         </div>
         <div class="row">
             <label for="email">Email</label>
@@ -12,11 +12,14 @@
             <input id="password" ng-model="password">
         </div>
         <div class="row">
-            <button type="submit" ng-click="login()">Log In</button>
+            <label for="verify">Verify Password</label>
+            <input id="verify" ng-model="verify">
+        </div>
+        <div class="row">
+            <button type="submit" ng-click="createUser()">Register</button>
         </div>
         <p ng-if="message">{{message}}</p>
         <p ng-if="error">Error:{{ error }}</p>
-        <a href="#"><p class="small">Forgot your password?</p></a>
-        <a href="/#/register"><p class="small">Not registered yet? Click here to sign up.</p></a>
+        <a href="/#/login"><p class="small">Already Registered? Click here to login.</p></a>
     </div>
 </div>

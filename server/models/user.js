@@ -18,6 +18,20 @@ module.exports = function(sequelize, DataTypes) {
         password: {
             type: DataTypes.STRING
         }
+    }, {
+        timestamps: false,
+        classMethods: {
+            generateHashPass: function (password, done) {
+                return bcrypt.hashSync(password, bcrypt.genSaltSync(11), null);
+            },
+            associate: function(models) {
+            }
+        },
+        instanceMethods: {
+            authenticate: function (password, callback) {
+                return bcrypt.compare(password, this.password, callback);
+            }
+        }
     });
     return user;
 };

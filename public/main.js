@@ -2,8 +2,16 @@ var app = angular.module("capstoneApp", ["ngRoute", "firebase", "ui.bootstrap", 
 app.config(['$routeProvider',function($routeProvider) {
     $routeProvider
         .when('/', {
+            templateUrl: 'app/partials/register.html',
+            controller: 'userCtrl'
+        })
+        .when('/login', {
             templateUrl: 'app/partials/login.html',
-            controller: 'loginCtrl'
+            controller: 'userCtrl'
+        })
+        .when('/register', {
+            templateUrl: 'app/partials/register.html',
+            controller: 'userCtrl'
         })
         .when('/inventory', {
             templateUrl: 'app/partials/inventory.html',
