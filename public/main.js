@@ -13,5 +13,8 @@ app.config(['$routeProvider',function($routeProvider) {
             templateUrl: 'app/partials/additem.html',
             controller: 'additemCtrl'
         })
-        .otherwise('/');
+        .otherwise({
+            templateUrl: 'app/partials/login.html',
+            controller: 'loginCtrl'
+        })
 }]);
