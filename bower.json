@@ -1,7 +1,7 @@
 {
   "name": "lib",
   "description": "",
-  "main": "Gruntfile.js",
+  "main": "index.html",
   "authors": [
     "msnodgrass25 <msnodgrass25@gmail.com>"
   ],
