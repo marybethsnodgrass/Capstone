@@ -24,4 +24,21 @@ app.controller("userCtrl", ["$scope", "$http", "$timeout","$location", function(
               });
         newUser = {};
     };
+
+    $scope.login = function () {
+        newUser = {
+            email: $scope.email,
+            password: $scope.password
+        };
+        $http.post('/user/:id', JSON.stringify(newUser))
+            .success( function (data, status, header) {
+                console.log(status);
+                $location.path('/inventory');
+            })
+            .error(function (data, status, header) {
+                console.log(status);
+                alert(status);
+            });
+        newUser = {};
+    };
 }]);

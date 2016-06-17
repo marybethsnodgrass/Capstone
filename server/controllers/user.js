@@ -17,12 +17,12 @@ module.exports = {
         } else {
             res.status(200).send("passwords do not match");
         }
-    // },
-    // loginUser (req, res) {
-    //     db.user.findOne({where: {email: req.body.email}})
-    //     .then((user) => {
-    //         res.send(user);
-    //     })  
+    },
+    loginUser (req, res) {
+        db.user.findOne({where: {email: req.body.email}})
+        .then((user) => {
+            res.send(user);
+        })  
     // },
     // logout (req, res) {
     //     req.session.regenerate(err => {
