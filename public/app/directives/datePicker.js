@@ -4,9 +4,9 @@ app.directive("datepickerDirective", function() {
     replace: true,
     transclude: true,
     templateUrl: "app/partials/datePicker.html",
-    scope: {
-        dt: '='
-    },
+    // scope: {
+    //     dt: '='
+    // },
     link: function ($scope, element, attrs) {
       // DOM manipulation/events here!
         $scope.setFoodDate = function(dt) {

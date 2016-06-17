@@ -14,6 +14,7 @@ const io = require('socket.io')()
 const db = require('./models/');
 
 const user = require('./routes/user');
+const inventory = require('./routes/inventory');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -49,6 +50,7 @@ app.get('/', (req, res) => {
 //routes
 
 app.use(user);
+app.use(inventory);
 
 db.sequelize.sync().then(() => {
   console.log("seqeulize.sync()");
