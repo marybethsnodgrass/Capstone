@@ -6,6 +6,11 @@ var basename  = path.basename(module.filename);
 var db        = {};
 const Sequelize = require('sequelize');
 const DATABASE_URL = process.env.DATABASE_URL || 'postgres://localhost:5432/nobadapples'
+const types = require('pg').types;
+const timestampOID = 1114;
+types.setTypeParser(1114, function(stringValue) {
+  return new Date( Date.parse(stringValue + "0000") );
+});
 const sequelize = new Sequelize(DATABASE_URL);
 fs
   .readdirSync(__dirname)
